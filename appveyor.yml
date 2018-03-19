@@ -23,5 +23,5 @@ build: false
 
 #Kick off the CI/CD pipeline
 test_script:
-  - ps: Install-WindowsFeature –Name Hyper-V -IncludeManagementTools
+  - ps: Install-WindowsFeature -Name Hyper-V-PowerShell
   - ps: . .\build.ps1
