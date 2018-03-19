@@ -1,0 +1,25 @@
+site_name: PSHVTag
+repo_url: https://github.com/sasstu/PSHVTag
+theme: readthedocs
+pages:
+  - Home: index.md
+  - PSHVTag Basics:
+    - What is PSHVTag: about.md
+    - Quick Start: Quick-Start-Installation-and-Example.md
+  - Public Functions:
+    - Start-VMService: PublicFunctions/Command-Start-VMService.md
+    - Stop-VMService: PublicFunctions/Command-Stop-VMService.md
+    - Set-VMTag: PublicFunctions/Command-Set-VMTag.md
+    - Get-VMTopology : PublicFunctions/Command-Get-VMTopology.md
+    - Get-VMTopologyGraph: PublicFunctions/Command-Get-VMTopologyGraph.md
+    
+  - Internal Functions:
+    - Get-VMEnvironment: InternalFunctions/Command-Get-VMEnvironment.md
+    - Get-VMService: InternalFunctions/Command-Get-VMService.md
+    - Get-VMWithTag: InternalFunctions/Command-Get-VMWithTag.md
+    - Get-TopologicalSort: InternalFunctions/Command-Get-TopologicalSort.md
+    - Convert-VMNoteTagsToObject: InternalFunctions/Command-Convert-VMNoteTagsToObject.md
+    - Get-ClonedObject: InternalFunctions/Command-Get-ClonedObject.md
+    - Get-EdgeHashtableFromVMNote: InternalFunctions/Command-Get-EdgeHashtableFromVMNote.md
+
+  - Acknowledgements: acknowledgements.md
