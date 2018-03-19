@@ -7,4 +7,6 @@ You can also use the VM Topology object to select virtual machines and use them 
 
 While creating the module I thought it would be nice to have a graph of my lab environments so I added a function based on the PSGraph module to it as well which allows you to map your environments.
 
+![VMTopology](/images/VMTopology.png)
+
 Authored by Sascha Stumpler
