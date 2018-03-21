@@ -163,7 +163,7 @@ Task UnitTests {
 }
 
 Task FullTests {
-    $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build -CodeCoverage $ModulePath -CodeCoverageOutputFile $TestFileCoverage
+    $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build -CodeCoverage $ModulePath
 
     PublishTestResults $testFile
     PublishTestResultsCoverage $TestResults
