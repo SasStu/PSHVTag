@@ -12,4 +12,4 @@ This project was generated using a [Plaster template](https://github.com/KevinMa
 
 ## Christian Crowhurst
 
-Who has added a lot of functionality to the [Plaster template](https://github.com/KevinMarquette/PlasterTemplates).
+[Who](https://github.com/christianacca) has added a lot of functionality to the [Plaster template](https://github.com/KevinMarquette/PlasterTemplates).
