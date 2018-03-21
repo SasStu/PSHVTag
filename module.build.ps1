@@ -41,7 +41,7 @@ function CalculateFingerprint
 function PublishTestResultsCoverage
 {
     param(
-        [string]$Results
+        $Results
     )
     $Coverage = Format-Coverage -PesterResults $Results -CoverallsApiToken $ENV:CoverallsKey -BranchName $ENV:BHBranchName
     Publish-Coverage -Coverage $Coverage
