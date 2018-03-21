@@ -8,7 +8,6 @@ $script:ModulePath = "$Destination\$ModuleName.psm1"
 $script:ManifestPath = "$Destination\$ModuleName.psd1"
 $script:Imports = ( 'private', 'public', 'classes' )
 $script:TestFile = "$PSScriptRoot\output\TestResults_PS$PSVersion`_$TimeStamp.xml"
-$script:TestFileCoverage = "$PSScriptRoot\output\TestResultsCoverage_PS$PSVersion`_$TimeStamp.xml"
 $global:SUTPath = $script:ManifestPath
 
 Task Init SetAsLocal, InstallSUT
@@ -42,9 +41,9 @@ function CalculateFingerprint
 function PublishTestResultsCoverage
 {
     param(
-        [string]$Path
+        [string]$Results
     )
-    $Coverage = Format-Coverage -PesterResults $Path -CoverallsApiToken $ENV:CoverallsKey -BranchName $ENV:BHBranchName
+    $Coverage = Format-Coverage -PesterResults $Results -CoverallsApiToken $ENV:CoverallsKey -BranchName $ENV:BHBranchName
     Publish-Coverage -Coverage $Coverage
 }
 function PublishTestResults
@@ -167,7 +166,7 @@ Task FullTests {
     $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build -CodeCoverage $ModulePath -CodeCoverageOutputFile $TestFileCoverage
 
     PublishTestResults $testFile
-    PublishTestResultsCoverage $TestFileCoverage
+    PublishTestResultsCoverage $TestResults
     
     if ($TestResults.FailedCount -gt 0)
     {
