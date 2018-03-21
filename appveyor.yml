@@ -8,7 +8,7 @@ clone_folder: C:\MyProjects\PSHVTag
 
 environment:
   NugetApiKey:
-    secure: 72vUgIKY4GSTJP4U18v7ttsg9FuRQCdSYhx4IVh3Xaw=
+    secure: dk2A8b2Gg8sVVMZdLfLmLxaFNwdvzTSElq7I4/Sq3+kgYwyc2js2nosJt/pp/xn5=
   CoverallsKey:
     secure: 62zPk8GQyKrwk+B46siuAsh9X9BHqUD4NRT4nCWF1H1wSGnXFYnjCf9jIaouFkBE
 
