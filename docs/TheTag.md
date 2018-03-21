@@ -22,4 +22,4 @@ A tag line looks like the example below. Multiple instances of an element are se
 
 \<Env>`Environment1,Environment2`\</Env>\<Service>`Service1,Service2`\</Service>\<DependsOn>`RequiredService1,RequiredService2`\</DependsOn>
 
-You can create a tag also by using the [Set-VMTag](PublicFunctions/Command-Set-VMTag.md) command.
+You can create a tag by using the [Set-VMTag](PublicFunctions/Command-Set-VMTag.md) command.
