@@ -6,6 +6,8 @@ pages:
   - PSHVTag Basics:
     - What is PSHVTag: about.md
     - Quick Start: Quick-Start-Installation-and-Example.md
+    - What is VM-Topology: What-is-VM-Topology.md
+    - The Tag: TheTag.md
   - Public Functions:
     - Start-VMService: PublicFunctions/Command-Start-VMService.md
     - Stop-VMService: PublicFunctions/Command-Stop-VMService.md
@@ -21,5 +23,11 @@ pages:
     - Convert-VMNoteTagsToObject: InternalFunctions/Command-Convert-VMNoteTagsToObject.md
     - Get-ClonedObject: InternalFunctions/Command-Get-ClonedObject.md
     - Get-EdgeHashtableFromVMNote: InternalFunctions/Command-Get-EdgeHashtableFromVMNote.md
+  
+  - Classes:
+    - VMWithTag: Classes/Class-VMWithTag.md
+    - VMService: Classes/Class-VMService.md
+    - VMEnvironment: Classes/Class-VMEnvironment.md
+    - VMTopology: Classes/Class-VMTopology.md
 
   - Acknowledgements: acknowledgements.md

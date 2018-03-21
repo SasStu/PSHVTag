@@ -14,13 +14,15 @@ Task Default Build, Pester, Publish
 Task Build InstallSUT, CopyToOutput, BuildPSM1, BuildPSD1
 Task Pester Build, UnitTests, FullTests
 
-function CalculateFingerprint {
+function CalculateFingerprint
+{
     param(
         [Parameter(ValueFromPipeline)]
         [System.Management.Automation.FunctionInfo[]] $CommandList
     )
 
-    process {
+    process
+    {
         $fingerprint = foreach ($command in $CommandList )
         {
             foreach ($parameter in $command.parameters.keys)
@@ -30,7 +32,18 @@ function CalculateFingerprint {
             }
         }
         $fingerprint
+    
     }
+}
+
+
+function PublishTestResultsCoverage
+{
+    param(
+        [string]$Path
+    )
+    $Coverage = Format-Coverage -PesterResults $Path -CoverallsApiToken $ENV:CoverallsKey -BranchName $ENV:BHBranchName
+    Publish-Coverage -Coverage $Coverage
 }
 function PublishTestResults
 {
@@ -61,7 +74,8 @@ function PublishTestResults
     }
 }
 
-function Read-Module {
+function Read-Module
+{
     param (
         [Parameter(Mandatory)]
         [string] $Name,
@@ -75,7 +89,8 @@ function Read-Module {
             [string] $Name,
             [string] $Repository, 
             [string] $Path)
-        try {
+        try
+        {
             
             # we need to ensure $Path is one of the locations that PS will look when resolving
             # dependencies of the module it is being asked to import
@@ -84,19 +99,24 @@ function Read-Module {
             $revisedPath = ( @($Path) + @($psModulePaths) | Select -Unique ) -join ';'
             Set-Item -Path Env:\PSModulePath -Value $revisedPath  -EA Stop
 
-            try {
+            try
+            {
                 Save-Module -Name $Name -Path $Path -Repository $Repository -EA Stop
                 Import-Module "$Path\$Name" -PassThru -EA Stop
             }
-            finally {
+            finally
+            {
                 Set-Item -Path Env:\PSModulePath -Value $originalPath -EA Stop
             }               
         }
-        catch {
-            if ($_ -match "No match was found for the specified search criteria") {
+        catch
+        {
+            if ($_ -match "No match was found for the specified search criteria")
+            {
                 @()
             }
-            else {
+            else
+            {
                 $_
             }
         }
@@ -134,7 +154,7 @@ Task Clean {
 }
 
 Task UnitTests {
-    $TestResults = Invoke-Pester -Path Tests\*unit* -PassThru -Tag Build -ExcludeTag Slow
+    $TestResults = Invoke-Pester -Path Tests\*unit* -PassThru -Tag Build -ExcludeTag Slow -CodeCoverage $ModulePath
     if ($TestResults.FailedCount -gt 0)
     {
         Write-Error "Failed [$($TestResults.FailedCount)] Pester tests"
@@ -142,9 +162,10 @@ Task UnitTests {
 }
 
 Task FullTests {
-    $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build
+    $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build -CodeCoverage $ModulePath
 
     PublishTestResults $testFile
+    PublishTestResultsCoverage $testFile
     
     if ($TestResults.FailedCount -gt 0)
     {
@@ -202,7 +223,8 @@ Task BuildPSM1 -Inputs (Get-Item "$source\*\*.ps1") -Outputs $ModulePath {
 
 Task PublishedModuleInfo -if (-Not ( Test-Path "$output\previous-module-info.xml" ) ) -Before BuildPSD1 {
     $downloadPath = "$output\previous-vs"
-    if (-not(Test-Path $downloadPath)) {
+    if (-not(Test-Path $downloadPath))
+    {
         New-Item $downloadPath -ItemType Directory | Out-Null
     }
 
@@ -217,14 +239,14 @@ Task PublishedModuleInfo -if (-Not ( Test-Path "$output\previous-module-info.xml
     $moduleInfo = if ($null -eq $previousModule) 
     {
         [PsCustomObject] @{
-            Version = [System.Version]::new(0, 0, 1)
+            Version     = [System.Version]::new(0, 0, 1)
             Fingerprint = @()
         }
     }
     else 
     {
         [PsCustomObject] @{
-            Version = $previousModule.Version
+            Version     = $previousModule.Version
             Fingerprint = $previousModule.ExportedFunctions.Values | CalculateFingerprint
         }
     }

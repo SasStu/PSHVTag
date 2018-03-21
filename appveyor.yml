@@ -9,6 +9,8 @@ clone_folder: C:\MyProjects\PSHVTag
 environment:
   NugetApiKey:
     secure: 72vUgIKY4GSTJP4U18v7ttsg9FuRQCdSYhx4IVh3Xaw=
+  CoverallsKey:
+    secure: 62zPk8GQyKrwk+B46siuAsh9X9BHqUD4NRT4nCWF1H1wSGnXFYnjCf9jIaouFkBE
 
 # Skip on updates to the readme.
 # We can force this by adding [skip ci] or [ci skip] anywhere in commit message 

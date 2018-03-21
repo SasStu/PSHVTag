@@ -10,4 +10,5 @@
     Pester           = @{
         Version = '4.1.0'
     }
+    coveralls        = '1.0.25'
 }
