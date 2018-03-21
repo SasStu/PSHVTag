@@ -1,8 +1,8 @@
 # What is a VM-Topology
 
-A VM-Topology is a [custom PowerShell class](classes/Class-VMTopology.md) containing different elements. It is __build from all virtual machines of one host which contain a [Tag](TheTag.md) in their notes field__.
+A VM-Topology is a [custom PowerShell class](Classes/Class-VMTopology.md) containing different elements. It is __build from all virtual machines of one host which contain a [Tag](TheTag.md) in their notes field__.
 
-It can contain multiple [VM-Environments](classes/Class-VMEnvironment.md) in which virtual machines can provide [VM-Services](classes/Class-VMService.md). The environment also reflect the dependencies between these services.
+It can contain multiple [VM-Environments](Classes/Class-VMEnvironment.md) in which virtual machines can provide [VM-Services](Classes/Class-VMService.md). The environment also reflect the dependencies between these services.
 
 ## Example Graph
 

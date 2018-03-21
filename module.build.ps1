@@ -1,5 +1,6 @@
 $script:ModuleName = $ENV:BHProjectName
-
+$script:Timestamp = Get-date -uformat "%Y%m%d-%H%M%S"
+$script:PSVersion = $PSVersionTable.PSVersion.Major
 $script:Source = Join-Path $BuildRoot $ModuleName
 $script:Output = Join-Path $BuildRoot output
 $script:Destination = Join-Path $Output $ModuleName
