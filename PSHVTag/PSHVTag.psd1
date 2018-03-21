@@ -9,7 +9,7 @@
     Author            = 'Sascha Stumpler'
     CompanyName       = 'Unknown'
     Copyright         = '(c) Sascha Stumpler. All rights reserved.'
-    Description       = ''
+    Description       = 'Creating a VM-Topology from a simple Tag in the notes field of a Hyper-V Virtual Machine to start and stop VM-Services and their dependencies.'
     FunctionsToExport = @()
     CmdletsToExport   = @()
     VariablesToExport = @()
