@@ -82,7 +82,7 @@ function Get-TopologicalSort
         foreach ($currentEdgeSourceNode in $currentEdgeList.Keys)
         {
             $currentNodeDestinations = $currentEdgeList[$currentEdgeSourceNode]
-            if ($currentNodeDestinations.Contains($currentNode))
+            if ($null -ne $currentNodeDestinations -and $currentNodeDestinations.Contains($currentNode))
             {
                 [void] $currentNodeDestinations.Remove($currentNode)
   
