@@ -18,8 +18,8 @@ The order of the services is build from the EdgeList. It defines the start order
 
 ### VM [VMWithTag[]]
 
-All [tagged virtual machines](VMwithtag.md) in the environment.
+All [tagged virtual machines](Class-VMwithtag.md) in the environment.
 
 ### Service [VMService[]]
 
-An array of the VM-Services provided by the virtual machines in the environment. A VM Service is a [custom PowerShell class](VMService.md).
+An array of the VM-Services provided by the virtual machines in the environment. A VM Service is a [custom PowerShell class](Class-VMService.md).

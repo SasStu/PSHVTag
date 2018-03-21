@@ -234,6 +234,8 @@ Describe "Basic function unit tests" -Tags Build {
             }    
         }
         Describe -Name 'Set-VMTag' {
+            # Set-VMTag
+            # VMName, Env, Serv, Depends
             it -name "should set the VMTag" {
                 Mock -CommandName Get-VM -MockWith {return $FileServer04.VMMock} -Verifiable
                 Mock -CommandName Set-VM -Verifiable
@@ -257,8 +259,29 @@ Describe "Basic function unit tests" -Tags Build {
                 $Result = Set-VMTag -VM @($FileServer01.VMMock, $FileServer05.VMMock) -Environment 'Pester1' -Service 'FileServer' -DependsOn @('Domain', 'DHCP') -Force
                 (Compare-Object -ReferenceObject ([pscustomobject]@{Success = @('FileServer01', 'FileServer05'); Error = @()}) -DifferenceObject $Result -Property Success, Error) | Should -BeNullOrEmpty
                 Assert-MockCalled -CommandName Set-VM -Scope It -Times 1 -ParameterFilter {$VM -eq $FileServer01.VMMock -and $Notes -eq ('<Env>Pester1</Env><Service>FileServer</Service><DependsOn>Domain,DHCP</DependsOn>')}
-                Assert-MockCalled -CommandName Set-VM -Scope It -Times 1 -ParameterFilter {$VM -eq $FileServer05.VMMock -and $Notes -eq ('<Env>Pester1</Env><Service>FileServer</Service><DependsOn>Domain,DHCP</DependsOn>' + "`r`n")}
-            }  
+                Assert-MockCalled -CommandName Set-VM -Scope It -Times 1 -ParameterFilter {$VM -eq $FileServer05.VMMock -and $Notes -eq ('<Env>Pester1</Env><Service>FileServer</Service><DependsOn>Domain,DHCP</DependsOn>' + "`r`n")}  
+            }    
+            #set on empty Notes
+            it -name "should set the VMTag on multiple VM objects (overwrite and empty Notes)" {
+                Mock -CommandName Set-VM -Verifiable -MockWith {return Throw}
+                $Result = Set-VMTag -VM @($FileServer01.VMMock, $FileServer05.VMMock) -Environment 'Pester1' -Service 'FileServer' -DependsOn @('Domain', 'DHCP') -Force
+                (Compare-Object -ReferenceObject ([pscustomobject]@{Success = @(); Error = @('FileServer01', 'FileServer05')}) -DifferenceObject $Result -Property Success, Error) | Should -BeNullOrEmpty
+                Assert-MockCalled -CommandName Set-VM -Scope It -Times 1 -ParameterFilter {$VM -eq $FileServer01.VMMock -and $Notes -eq ('<Env>Pester1</Env><Service>FileServer</Service><DependsOn>Domain,DHCP</DependsOn>')}
+                Assert-MockCalled -CommandName Set-VM -Scope It -Times 1 -ParameterFilter {$VM -eq $FileServer05.VMMock -and $Notes -eq ('<Env>Pester1</Env><Service>FileServer</Service><DependsOn>Domain,DHCP</DependsOn>' + "`r`n")}  
+            }   
+            # VMName, Env, Serv, Depends Force
+            it -name "should replace the VMTag" {
+                Mock -CommandName Get-VM -MockWith {return Throw} -Verifiable
+                {Set-VMTag -VMName 'FileServer01' -Environment 'Pester1' -Service @('FileServer', 'DHCP') -DependsOn 'Domain' -Force} | Should -Throw
+                Assert-MockCalled -CommandName Get-VM -Scope It -Times 1
+            } 
+            # VMName, Env, Serv, Depends Force
+            it -name "should replace the VMTag" {
+                Mock -CommandName Get-VM -MockWith {return $FileServer01.VMMock} -Verifiable
+                $Result = Set-VMTag -VMName 'FileServer01' -Environment 'Pester1' -Service @('FileServer', 'DHCP') -DependsOn 'Domain'
+                (Compare-Object -ReferenceObject ([pscustomobject]@{Success = @(); Error = @('FileServer01')}) -DifferenceObject $Result -Property Success, Error) | Should -BeNullOrEmpty
+                Assert-MockCalled -CommandName Get-VM -Scope It -Times 1
+            } 
         }
     }
 }

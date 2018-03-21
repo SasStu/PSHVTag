@@ -7,6 +7,7 @@ $script:ModulePath = "$Destination\$ModuleName.psm1"
 $script:ManifestPath = "$Destination\$ModuleName.psd1"
 $script:Imports = ( 'private', 'public', 'classes' )
 $script:TestFile = "$PSScriptRoot\output\TestResults_PS$PSVersion`_$TimeStamp.xml"
+$script:TestFileCoverage = "$PSScriptRoot\output\TestResultsCoverage_PS$PSVersion`_$TimeStamp.xml"
 $global:SUTPath = $script:ManifestPath
 
 Task Init SetAsLocal, InstallSUT
@@ -162,10 +163,10 @@ Task UnitTests {
 }
 
 Task FullTests {
-    $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build -CodeCoverage $ModulePath
+    $TestResults = Invoke-Pester -Path Tests -PassThru -OutputFormat NUnitXml -OutputFile $testFile -Tag Build -CodeCoverage $ModulePath -CodeCoverageOutputFile $TestFileCoverage
 
     PublishTestResults $testFile
-    PublishTestResultsCoverage $testFile
+    PublishTestResultsCoverage $TestFileCoverage
     
     if ($TestResults.FailedCount -gt 0)
     {

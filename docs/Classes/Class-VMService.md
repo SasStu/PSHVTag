@@ -10,7 +10,7 @@ The name of the service.
 
 ### VM [VMWithTag[]]
 
-An array of all [tagged virtual machines](VMWithTag.md) providing this service in this environment.
+An array of all [tagged virtual machines](Class-VMWithTag.md) providing this service in this environment.
 
 ### DependsOn [array]
 
