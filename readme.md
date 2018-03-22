@@ -1,6 +1,7 @@
 # PSHVTag
 
-[![Build status](https://ci.appveyor.com/api/projects/status/wc2u7yj62parjq5t?svg=true)](https://ci.appveyor.com/project/SasStu/pshvtag) ![Documentation Status](https://readthedocs.org/projects/pshvtag/badge/?version=latest) [![Coverage Status](https://coveralls.io/repos/github/SasStu/PSHVTag/badge.svg)](https://coveralls.io/github/SasStu/PSHVTag)
+[![Build status](https://ci.appveyor.com/api/projects/status/wc2u7yj62parjq5t?svg=true)](https://ci.appveyor.com/project/SasStu/pshvtag) ![Documentation Status](https://readthedocs.org/projects/pshvtag/badge/?version=latest) [![Coverage Status](https://coveralls.io/repos/github/SasStu/PSHVTag/badge.svg)](https://coveralls.io/github/SasStu/PSHVTag) [![PS Gallery](https://img.shields.io/badge/install-PS%20Gallery-blue.svg)](https://www.powershellgallery.com/packages/PSHVTag/)
+
 
 Creating a VM-Topology from a simple Tag in the notes field of a Hyper-V Virtual Machine to start and stop VM-Services and their dependencies.
 

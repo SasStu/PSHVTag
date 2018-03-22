@@ -10,4 +10,4 @@ Creates a (array of) VMService object(s) based on the list of tagged VMs defined
 
 ### -VM [VMWithTag[]]
 
-A (list of) VM object(s) with Tags from which to build the VMEnvironment object
+A (list of) VM object(s) with Tags from which to build the VM-Environment object

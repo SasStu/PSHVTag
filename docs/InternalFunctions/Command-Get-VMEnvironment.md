@@ -1,6 +1,6 @@
 # Get-VMEnvironment
 
-Creates a (array of) VMEnvironment object(s)
+Creates a (array of) VM-Environment object(s)
 
 ## Common Usage
 
@@ -10,4 +10,4 @@ Creates a (array of) VMEnvironment object(s)
 
 ### -VM [VMWithTag[]]
 
-A (list of) VM object(s) with Tags from which to build the VMEnvironment object
+A (list of) VM object(s) with Tags from which to build the VM-Environment object

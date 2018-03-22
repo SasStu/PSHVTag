@@ -6,7 +6,7 @@ The Tag used to create the VM Topology consists of three elements and is stored 
 
 ### Environment
 
-This element defines the VM Environments a virtual machine belongs to. One VM has to belong to one but __can belong to multiple environments__. But it has to provide the __same services in all environments__ and it __depends on the same services in all environments__.
+This element defines the VM Environments a virtual machine belongs to. One VM has to belong to one but __can belong to multiple environments__. But it has to provide the __same services in all environments__ and it __has to depend on the same services in all environments__.
 
 ### Service
 
@@ -20,6 +20,6 @@ The DependsOn element includes all services a VM requires to be up in running be
 
 A tag line looks like the example below. Multiple instances of an element are separated by a comma.
 
-\<Env>`Environment1,Environment2`\</Env>\<Service>`Service1,Service2`\</Service>\<DependsOn>`RequiredService1,RequiredService2`\</DependsOn>
+    <pre><code>&lt;Env&gt;Environment1,Environment2&lt;/Env&gt;&lt;Service&gt;Service1,Service2&lt;/Service&gt;&lt;DependsOn&gt;RequiredService1,RequiredService2&lt;/DependsOn&gt;</code></pre>
 
 You can create a tag by using the [Set-VMTag](PublicFunctions/Command-Set-VMTag.md) command.

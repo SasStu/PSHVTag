@@ -52,7 +52,6 @@ function Set-VMTag
         $VMName,
         # The VM object
         [Parameter(ParameterSetName = 'VMObject', Mandatory = $true)]
-        [Microsoft.HyperV.PowerShell.VirtualMachine[]]
         $VM,
         # Specifies the VM Host.
         [Parameter(Mandatory = $false)]

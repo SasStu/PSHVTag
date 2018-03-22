@@ -24,7 +24,7 @@ VMService object of the VM Service to start
 
 ### -Environment [VMEnvironment]
 
-VMEnvironment object of the VM Service to start
+VM-Environment object of the VM Service to start
 
 ### -VMTopology [VMTopology]
 

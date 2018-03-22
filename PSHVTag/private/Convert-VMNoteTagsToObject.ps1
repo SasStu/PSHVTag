@@ -17,7 +17,6 @@ function Convert-VMNoteTagsToObject
     [CmdletBinding()]
     param(
         [Parameter(Mandatory = $true, ValueFromPipeline)]
-        [Microsoft.HyperV.PowerShell.VirtualMachine]
         $VM
     )
     $VM.Notes -Match '(\<Env\>(?<Environment>.+)\<\/Env\>|\<Service\>(?<Service>.+)\<\/Service\>|\<DependsOn\>(?<DependsOn>.+)\<\/DependsOn\>)+' |Out-Null

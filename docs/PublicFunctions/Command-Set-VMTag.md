@@ -36,7 +36,7 @@ The name of the VM were you want to set the Tag. It accepts arrays as well as si
 
 ### -VM [Microsoft.HyperV.PowerShell.VirtualMachine[]]
 
-The VM object were you want to set the Tag. It accepts arrays as well as single strings.
+The VM object were you want to set the Tag. It accepts arrays as well as single objects.
 
 ### -Computername [string]
 
