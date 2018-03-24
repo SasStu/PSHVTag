@@ -18,7 +18,7 @@ The order of the services is build from the EdgeList. It defines the start order
 
 ### VM [VMWithTag[]]
 
-All [tagged virtual machines](Class-VMwithtag.md) in the environment.
+All [tagged virtual machines](Class-VMWithTag.md) in the environment.
 
 ### Service [VMService[]]
 

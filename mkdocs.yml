@@ -1,9 +1,6 @@
 site_name: PSHVTag
 repo_url: https://github.com/sasstu/PSHVTag
 theme: readthedocs
-formats:
-    - epub
-    - pdf
 pages:
   - Home: index.md
   - PSHVTag Basics:
