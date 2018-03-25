@@ -1,6 +1,6 @@
 # Get-VMEnvironment
 
-Creates a (array of) VM-Environment object(s)
+Creates an (array of) VM-Environment object(s)
 
 ## Common Usage
 

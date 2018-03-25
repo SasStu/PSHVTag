@@ -4,7 +4,7 @@ This command stops virtual machines based on the service defined in the tag.
 
 ## Common Usage
 
-To stop a service and all required services after it the following command can be used
+To stop a service and all required services after the following command can be used
 
     Stop-VMService -ServiceName Domain -EnvironmentName LAB01 -VMTopology (Get-VMTopology) -Recurse
 

@@ -8,7 +8,7 @@ Here are the common ways to use this command.
 
 ### Add a Tag to a VM
 
-If the Notes field of the VM does not contain a Tag string already you can add it like this:
+If the Notes field of the VM does not contain a Tag string yet, you can add it like this:
 
     Set-VMTag -VMName DomainController01 -Environment Lab01 -Service Domain -DependsOn Gateway
 
@@ -32,7 +32,7 @@ The Service the VM depends on. It accepts arrays as well as single strings.
 
 ### -VMName [string[]]
 
-The name of the VM were you want to set the Tag. It accepts arrays as well as single strings.
+The name of the VM on which you want to set the Tag. It accepts arrays as well as single strings.
 
 ### -VM [Microsoft.HyperV.PowerShell.VirtualMachine[]]
 

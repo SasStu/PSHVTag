@@ -1,6 +1,6 @@
 # Get-VMService
 
-Creates a (array of) VMService object(s) based on the list of tagged VMs defined by the parameter VM.
+Creates an (array of) VMService object(s) based on the list of tagged VMs defined by the parameter VM.
 
 ## Common Usage
 
